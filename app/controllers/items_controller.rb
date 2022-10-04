@@ -14,13 +14,13 @@ class ItemsController < ApplicationController
 
 	def show
 		item  = Item.find(params[:id])
-		render json: item, status: :ok
+		render json: item, status: :created
 	end
 
 	def create
 		user = find_user
 		item = user.items.create(item_params)
-		render json: item, status: :created
+		render json: item, status: :ok
 	end
 
 	private
